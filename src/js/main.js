@@ -39,23 +39,23 @@ $(window).scroll(function() {
 	if (prev_scroll < scrolly_pos+700 && prev_scroll > scrolly_pos+500) {
 		$('.img').removeClass("hide");
 		$('.img').css({ position: 'fixed',top: '100px' });
-	} else if (prev_scroll < scrolly_pos+500 && prev_scroll > scrolly_pos+300) {
-		console.log("got here");
 		$('.five').addClass("hide");
 		$('.four').removeClass("hide");
-	} else if (prev_scroll < scrolly_pos+300 && prev_scroll > scrolly_pos+100) {
+	// } else if (prev_scroll < scrolly_pos+500 && prev_scroll > scrolly_pos+300) {
+	// 	console.log("got here");
+		// $('.five').addClass("hide");
+		// $('.four').removeClass("hide");
+	} else if (prev_scroll < scrolly_pos+500 && prev_scroll > scrolly_pos+300) {
 		$('.four').addClass("hide");
 		$('.three').removeClass("hide");
-	} else if (prev_scroll < scrolly_pos+100 && prev_scroll > scrolly_pos-100) {
+	} else if (prev_scroll < scrolly_pos+300 && prev_scroll > scrolly_pos+100) {
 		$('.three').addClass("hide");
 		$('.two').removeClass("hide");
-	} else if (prev_scroll < scrolly_pos-100 && prev_scroll > scrolly_pos-300) {
+	} else if (prev_scroll < scrolly_pos+100 && prev_scroll > scrolly_pos-100) {
 		$('.two').addClass("hide");
 		$('.one').removeClass("hide");
 		$('.img').css({ position: 'absolute' , top: scrolly_pos.toString() + 'px'});
-	} else if (prev_scroll < scrolly_pos-300) {
-		//$('.img').css({ position: 'absolute' , top: scrolly_pos.toString() + 'px'});
-	}
+	} 
 }
 prev_scroll = pos;
 })
