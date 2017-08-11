@@ -54,7 +54,7 @@ $(window).scroll(function() {
 	} else if (prev_scroll < scrolly_pos+100 && prev_scroll > scrolly_pos-100) {
 		$('.two').addClass("hide");
 		$('.one').removeClass("hide");
-		$('.img').css({ position: 'absolute' , top: scrolly_pos.toString() + 'px'});
+		$('.img').css({ position: 'absolute' , top: (scrolly_pos+20).toString() + 'px'});
 	} 
 }
 prev_scroll = pos;
