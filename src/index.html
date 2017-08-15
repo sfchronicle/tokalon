@@ -10,49 +10,136 @@
 
 
 <!-- Code that goes within WCM Freeform -->
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 
-<div class="above-text">
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas finibus est mi, sit amet ornare ex ornare in. Vestibulum imperdiet dapibus finibus. Sed eleifend feugiat sem, et aliquam risus fermentum dignissim. Nam et commodo odio, ut luctus libero. Donec varius, elit vel bibendum hendrerit, tortor ex luctus ligula, at pharetra ante tortor nec turpis. Praesent ligula nibh, fringilla congue purus vel, pulvinar eleifend quam. Vivamus a ipsum cursus, cursus arcu in, pharetra arcu. Sed tincidunt, nisi ut convallis tempus, lorem dui commodo enim, quis dignissim velit ante eu felis. Sed sollicitudin at ipsum luctus ultrices.</p>
+<script type="text/javascript">
+// Twitter Intent
+(function() {
+  if (window.__twitterIntentHandler) return;
+  var intentRegex = /twitter\.com\/intent\/(\w+)/,
+      windowOptions = 'scrollbars=yes,resizable=yes,toolbar=no,location=yes',
+      width = 550,
+      height = 420,
+      winHeight = screen.height,
+      winWidth = screen.width;
 
-<p>Vivamus ac condimentum lacus. Suspendisse potenti. Duis pulvinar est vitae scelerisque tempus. Integer a viverra ipsum, a accumsan libero. Vestibulum eu neque tellus. Aliquam eu lobortis est. Aenean gravida scelerisque lorem molestie pellentesque.</p>
+  function handleIntent(e) {
+    e = e || window.event;
+    var target = e.target || e.srcElement,
+        m, left, top;
 
-<p>Etiam eu odio sodales, sodales massa eget, auctor tellus. Nunc nisi mi, fermentum vel bibendum vel, porttitor at leo. Duis a felis a mi porttitor sollicitudin. Fusce interdum lacus sit amet lacus rutrum elementum. Vestibulum maximus tristique accumsan. Ut eget dictum dolor. Morbi ac nulla sed dolor tempus vulputate. Suspendisse quis sodales ex. Maecenas orci sapien, rutrum id massa ut, molestie imperdiet purus. Mauris gravida efficitur lorem, non fermentum urna mollis eget. Donec ut vehicula neque, at vestibulum neque. Vivamus elit mi, pharetra in condimentum quis, scelerisque vel nibh. Vestibulum lobortis, elit in maximus efficitur, massa velit vestibulum nibh, eget laoreet nisl dui eget elit. Phasellus luctus at augue vulputate condimentum. Fusce sed sollicitudin dui, nec ultrices arcu.</p>
+    while (target && target.nodeName.toLowerCase() !== 'a') {
+      target = target.parentNode;
+    }
 
-<p>Curabitur mauris purus, convallis at eros eu, malesuada auctor felis. Fusce mollis elementum ante sit amet congue. Praesent interdum suscipit lobortis. Fusce tempus velit ac sapien consectetur tempor. Pellentesque dignissim enim nisl, eu tincidunt orci iaculis vitae. Phasellus accumsan in tortor sed condimentum. Nulla facilisi. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Sed mi nisl, hendrerit eu ligula hendrerit, scelerisque congue mauris. Nulla eget consequat elit, a accumsan justo. Aenean tempor consectetur orci, at aliquam nisl eleifend ut. Sed gravida enim eget nisl semper, sit amet vestibulum neque posuere. Duis sollicitudin commodo lacus, a accumsan nisi convallis eu. Proin ornare id justo vel finibus. Sed convallis sapien vel elit tincidunt, ac condimentum erat ultrices.</p>
+    if (target && target.nodeName.toLowerCase() === 'a' && target.href) {
+      m = target.href.match(intentRegex);
+      if (m) {
+        left = Math.round((winWidth / 2) - (width / 2));
+        top = 0;
+
+        if (winHeight > height) {
+          top = Math.round((winHeight / 2) - (height / 2));
+        }
+
+        window.open(target.href, 'intent', windowOptions + ',width=' + width +
+                                           ',height=' + height + ',left=' + left + ',top=' + top);
+        e.returnValue = false;
+        e.preventDefault && e.preventDefault();
+      }
+    }
+  }
+
+  if (document.addEventListener) {
+    document.addEventListener('click', handleIntent, false);
+  } else if (document.attachEvent) {
+    document.attachEvent('onclick', handleIntent);
+  }
+  window.__twitterIntentHandler = true;
+}());
+
+$(document).ready(function() {
+document.getElementById('0').classList.add('active');
+
+  $(window).scroll(function() {
+    
+  var window_top = document.body.scrollTop;
+  var div_top = document.getElementById('stick-here').getBoundingClientRect().top + window_top;
+
+
+
+  for (var i = 0; i < 9; i++) {
+    var a = document.getElementById(i);
+    var at = document.getElementById(i);
+    //console.log(at);
+
+
+
+    if (i == 8) {
+      var ed_top = a.getBoundingClientRect().top + window_top - 460;
+      var ede_top = a.getBoundingClientRect().bottom + window_top - 635;
+    } else {
+      var ed_top = a.getBoundingClientRect().top + window_top - 460;
+      var ede_top = a.getBoundingClientRect().bottom + window_top - 460;
+    }
+
+    if (window_top > ed_top && window_top < ede_top) {
+      at.classList.add('active');
+      a.classList.add('active');
+    } else {
+      at.classList.remove('active');
+      a.classList.remove('active');
+    }
+  }
+});
+});
+</script>
+
+
+<div class="dtf-container timeline">
+	<div class="subhead timeline">The wines from this land have been famous for 150 years. Scroll down to see what sorts of wines the vineyard’s different parcels are yielding today.</div>
 </div>
 
 
-<div class="interactive-container">
-
-	<img class="img one" src="http://projects.sfchronicle.com/2017/embed-tokalon/img/01_intro.jpg?1">
-	<img class="img two hide" src="http://projects.sfchronicle.com/2017/embed-tokalon/img/mondavi.jpg?1">
-	<img class="img three hide" src="http://projects.sfchronicle.com/2017/embed-tokalon/img/macdonald.jpg?1">
-	<img class="img four hide" src="http://projects.sfchronicle.com/2017/embed-tokalon/img/detert.jpg?1">
-	<img class="img five hide" src="http://projects.sfchronicle.com/2017/embed-tokalon/img/beckstoffer.jpg?1">
-	
-	
+<div class="timeline" id="timeline">
+  <div id="stick-here"></div>	
 
 
-	<div class="scrolly-text-container">
-		<p class="mondavi text">Robert Mondavi Cabernet Sauvignon Oakville To Kalon Vineyard Reserve 2013 ($155, 15%) – Longtime Mondavi winemaker Geneviève Janssens makes one of the more austere renditions of To Kalon, highly structured, holding back on fruit. It shows olive, anise and cedar, highlighted by orange peel. Substantial and tight.</p>
 
-		<p class="macdonald text">MacDonald Cabernet Sauvignon Oakville 2014 ($150, 14.5%) – Cool-toned, with impressions of wet stone, terra cotta, dried herbs, bay leaf and rose. A deep, oozing fruit character – like blueberry coulis – comes as an afterthought. Bright juicy acid frames the plump midpalate, suggesting cocoa powder and licorice. Structured but supple, already approachable, with velvety tannins that pull gently.</p>
+<% json.tokalon_text.timeline.forEach(function(event, idx){ %>
 
-		<p class="detert text">Detert Family Cabernet Franc Oakville Napa Valley 2014 ($95, 14.7%) – Since Detert, which owns 17 acres of To Kalon, is prohibited from printing the vineyard’s name on its label, the back label cites merely “our unique Oakville vineyard.” (Owner Tom Garrett is also a partner in the Dakota Shy brand.) The 2014 Cab Franc is still tight, hinting at dark fruit – currant, dark plum, blackberry pastry. It shows little pyrazine, expressing a savory character rather with green olive and tobacco leaf. The bright fruit is met with citrus, grounded with graphite and framed by hefty tannins and firm acidity.</p>
+  <div class="block-group" id="<%= idx %>">
+    <div class="block-name">
+      <div class="sticky-name">
+        <div class="block-yr"><img src="<%=event.Image%>"></div>
+      </div>
 
-		<p class="beckstoffer text">Schrader Cabernet Sauvignon Napa Valley Beckstoffer To Kalon Vineyard 2013 ($TK, 14.7%) – Dense and opaque, this is the most powerful of the wines in this tasting. It smells like quintessential Napa, with toasty vanilla, cassis, blackberry and cedar, leading into olive on the palate. Seductive, hedonistic and very grippy, it’s still tight, with almost-velvety tannins.</p>
+    </div>
+    
+    <div class="block-content">
+    	<div class="block-yr-mobile"><img src="<%=event.Image%>"></div>
 
-		<p class="beckstoffer">Realm Napa Valley Beckstoffer To Kalon 2015 ($200, 14.6%) – Despite its “red wine” label, Realm’s bottling is predominantly Cabernet Sauvignon, rounded out with a little bit of Cabernet Franc. The nose is super bright, marked by fig, blackberry and an irresistible, sweet-salty roasted meat quality. The palate’s black fruit intensity is frankly insane: Still savory, with umami-rich soy sauce and black olive, plum, cassis, pine. Its rough tannins suggest a long ways to go. I couldn’t help but take another sip, and then another sip.</p>
+      <div class="block-text">
+        <% if (event.Title) { %>
+        <% console.log(event.Title)  %>
+          <b><%=event.Title%></b> 
+        <% } %>  
+        <%=event.Text%>
+      </div>
+      <hr>
+    </div>
+  </div>
+<% }); %>
 
-		<p class="beckstoffer">Alpha Omega Cabernet Sauvignon Oakville Beckstoffer To Kalon 2013 ($225, 14.5%) – From winemaker Jean Hoefliger, Alpha Omega’s fresh, supple 2013 To Kalon is led by classic black currant notes, accented by iron and mocha. Its juicy, tart fruit is cut with hefty, still-bitter tannins. Graceful enough to mask its considerable power.</p>
+<div class="block-content">
+  <div id="credits">
+    <div class="credits-title">Credits</div>
+      <div>Research by<a href="mailto:dbaker@sfchronicle.com"> David R. Baker<br><a href="https://twitter.com/DavidBakerSF" target="_blank">@DavidBakerSF</a><br><br></div>
+      Developed by <a href="mailto:lvilla@sfchronicle.com">Lucio Villa</a><br><a href="https://twitter.com/luciovilla" target="_blank">@luciovilla</a><br>
+    </div>
 
-		<p class="beckstoffer">Tor Cabernet Sauvignon Napa Valley Beckstoffer To Kalon 2015 ($200, 14.8%) – This young wine still shows primary, exuberant, red fruit on the nose: cranberry, cassis, a hint of cherry, even strawberry – unusual for Napa Cabernet. Its mouthfeel is supple but it’s tensely held in balance, bitter tannins answering the tartness of the fruit, its young edges still rough on the finish.</p>
 
-		<p class="beckstoffer">Paul Hobbs Cabernet Sauvignon Napa Valley Beckstoffer To Kalon Vineyard 2014 ($500, 14.9%) – Wafting lilac, currant and plum, Paul Hobbs’ wine feels silky in the mouth, with tannins much more integrated than other wines in this tasting. Acid girds the wine, but it still feels soft and shows some savory qualities: sagebrush, bay leaf, green olive, sandalwood.</p>
-	</div>
-</div>
 
-<script src="app.js" async></script>
 
 
 

@@ -1,11 +1,11 @@
 {
-  "name": "tokalon",
+  "name": "dtf-timeline",
   "description": "",
   "version": "0.0.1",
   "author": "Lucio Villa",
   "repository": {
     "type": "git",
-    "url": "https://github.com/sfchronicle/tokalon.git"
+    "url": "https://github.com/sfchronicle/dtf-timeline.git"
   },
   "dependencies": {
     "archieml": "^0.3.1",

@@ -7,7 +7,7 @@ module.exports = function(grunt) {
 	  processhtml: {
 	    dist: {
 	      files: {
-	        'build/wcm.html': ['build/index.html']
+	        'build/wcm.html': ['build/header.html']
 	      }
 	    }
 	  },

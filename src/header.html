@@ -1,0 +1,68 @@
+<!-- build:remove -->
+<%= t.include("partials/_top.html") %>
+<!-- /build -->
+<!-- build:css inline -->
+<link rel="stylesheet" type="text/css" href="style.css">
+<!-- /build -->
+
+
+
+
+
+<!-- Code that goes within WCM Freeform -->
+
+
+
+<div class="dtf-wrapper">
+  <div class="dtf-container">
+    <div class="flex-left dtf-header ">
+      <p>DRIVING THE FUTURE</p>
+      <h1>On the cusp of a car revolution</h1>
+      <div class="subhead">For decades, technological breakthroughs born or nurtured in Silicon Valley — the semiconductor, the personal computer, the Internet and smartphones — have led to sweeping changes in the global economy, as well as in society and the culture. Today, the advent of self-driving vehicles portends an equally vast disruption in how we live and work, and the Bay Area is the engine driving that change. The  stories below and coming installments of Driving the Future will explain how autonomous vehicles have gone from experiment to reality, and what that means for all of us.<br>
+      <div class="dtf-btn">Read the stories</div>
+      </div>
+    </div>
+    <div class="flex-right"><img src="http://projects.sfchronicle.com/2017/driving-the-future/landing/images/car.gif"></div>
+  </div>
+
+</div>
+
+
+
+  <div class="dtf-main">
+    <div class="story">
+      <a href="http://www.sfchronicle.com/business/article/How-the-Bay-Area-took-over-the-self-driving-car-11278238.php">
+        <img src="http://ww3.hdnux.com/photos/62/35/64/12657235/3/premium_landscape.jpg">
+        <h2>How the Bay Area took over the self-driving car business</h2>
+      </a>
+    </div>
+    <div class="story">
+      <a href="http://www.sfchronicle.com/business/article/Driverless-milestone-No-Hands-Across-America-11278241.php">
+        <img src="http://ww3.hdnux.com/photos/07/76/55/13239349/5/premium_landscape.jpg">
+        <h2>Driverless milestone: No Hands Across America</h2>
+      </a>
+    </div>
+  
+    <div class="story">
+      <a href="http://sfchronicle.com/drivingthefuture/timeline/">
+        <img src="http://ww3.hdnux.com/photos/62/32/57/13216750/3/premium_landscape.jpg">
+        <h2>Timeline: The road from fantasy to fruition</h2>
+      </a>
+    </div>
+  </div>
+</div>
+  
+
+
+<script>
+  $(".dtf-btn").click(function() {
+    $('html,body').animate({
+       scrollTop: $(".dtf-main").offset().top
+    });
+  });
+</script>
+
+<!-- build:remove -->
+<%= t.include("partials/_bottom.html") %>
+<!-- /build -->
+
