@@ -28,6 +28,7 @@
   max-width:992px;
   margin:0 auto 10em;
   font-family: Georgia, serif; 
+  position: relative;
 
   .date{
     font-size:19px;
@@ -37,7 +38,11 @@
 }
 
 
-
+#map-8 {
+  img {
+    opacity: 0;
+  }
+}
 
 
 
@@ -48,7 +53,8 @@
 
 .timeline .block-group.active .block-name {
   display: block;
-  visibility: visible;
+  opacity: 1;
+  -webkit-transition: opacity ease;
   text-align: right; 
 }
 
@@ -89,7 +95,7 @@
 .timeline .block-name {
   width: 330px;
   z-index:2;
-  visibility: hidden;
+  opacity: 0;
   font-family: "AntennaRegular";
   font-size: 30px;
 }
