@@ -14,51 +14,10 @@
 
 <script type="text/javascript">
 // Twitter Intent
-(function() {
-  if (window.__twitterIntentHandler) return;
-  var intentRegex = /twitter\.com\/intent\/(\w+)/,
-      windowOptions = 'scrollbars=yes,resizable=yes,toolbar=no,location=yes',
-      width = 550,
-      height = 420,
-      winHeight = screen.height,
-      winWidth = screen.width;
 
-  function handleIntent(e) {
-    e = e || window.event;
-    var target = e.target || e.srcElement,
-        m, left, top;
-
-    while (target && target.nodeName.toLowerCase() !== 'a') {
-      target = target.parentNode;
-    }
-
-    if (target && target.nodeName.toLowerCase() === 'a' && target.href) {
-      m = target.href.match(intentRegex);
-      if (m) {
-        left = Math.round((winWidth / 2) - (width / 2));
-        top = 0;
-
-        if (winHeight > height) {
-          top = Math.round((winHeight / 2) - (height / 2));
-        }
-
-        window.open(target.href, 'intent', windowOptions + ',width=' + width +
-                                           ',height=' + height + ',left=' + left + ',top=' + top);
-        e.returnValue = false;
-        e.preventDefault && e.preventDefault();
-      }
-    }
-  }
-
-  if (document.addEventListener) {
-    document.addEventListener('click', handleIntent, false);
-  } else if (document.attachEvent) {
-    document.attachEvent('onclick', handleIntent);
-  }
-  window.__twitterIntentHandler = true;
-}());
 
 $(document).ready(function() {
+  //document.getElementById("map-0").classList.add('active');
  
 
   $(window).scroll(function() {
@@ -76,9 +35,12 @@ $(document).ready(function() {
 
 
     if (i == 8) {
-      var ed_top = a.getBoundingClientRect().top + window_top - 460;
-      var ede_top = a.getBoundingClientRect().bottom + window_top - 715;
+      var ed_top = a.getBoundingClientRect().top + window_top - 465;
+      var ede_top = a.getBoundingClientRect().bottom + window_top - 440;
 
+    } else if (i == 0) {
+      var ed_top = a.getBoundingClientRect().top + window_top - 250;
+      var ede_top = a.getBoundingClientRect().bottom + window_top - 460;
     } else {
       var ed_top = a.getBoundingClientRect().top + window_top - 465;
       var ede_top = a.getBoundingClientRect().bottom + window_top - 460;
@@ -88,18 +50,23 @@ $(document).ready(function() {
 
       at.classList.add('active');
       a.classList.add('active');
+
+      at.classList.remove('final');
+      a.classList.remove('final');
       // if (i == 8) {
       //   document.getElementById('map-8').classList.add('unstuck');
       // }
 
     } else {
-      
-      at.classList.remove('active');
-      a.classList.remove('active');
-      if (i == 8) {
-        console.log("hello");
-       
+      if (i != 8) {
+        at.classList.remove('active');
+        a.classList.remove('active');
+        console.log(i);
+      } else {
+        at.classList.add('final');
+        a.classList.add('final');        
       }
+      
     }
   }
 });
@@ -144,7 +111,7 @@ $(document).ready(function() {
 <% }); %>
 
 
-  <div class="credit">
+  <div class="jackie-credit">
   <div class="entry">Jackie Gu  &bull; <a href="mailto:jgu@sfchronicle.com">jgu@sfchronicle.com</a>   &bull; <a href="https://twitter.com/jqlngu" target="_blank">@jqlngu</a></div>
   </div>
 </div>
